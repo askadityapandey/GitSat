@@ -86,6 +86,44 @@ import Card from '../components/Card.astro';
 		<h2>Configuration</h2>
 		<p>You can configure GitSat to suit your needs by editing the configuration file. Here’s an example of a basic configuration:</p>
 
+		<h2>GitHub Commit Statistics Fetcher</h2>
+		<p>This repository contains a Bash script to fetch and display commit statistics for a public GitHub repository.</p>
+
+		<h3>How it Works</h3>
+		<p>The script, <code>fetch_and_format_stats.sh</code>, takes two required arguments:</p>
+		<ul>
+			<li><code>repository_owner</code>: The username or organization that owns the repository.</li>
+			<li><code>repository_name</code>: The name of the repository.</li>
+		</ul>
+
+		<h3>Optional Argument:</h3>
+		<ul>
+			<li><code>-t</code>, <code>--top=&lt;number&gt;</code>: This flag allows you to specify the number of top contributors to display (defaults to 3).</li>
+		</ul>
+
+		<p>The script retrieves commit data from the GitHub API and displays the following information:</p>
+		<ul>
+			<li><strong>Total Commits:</strong> The total number of commits in the repository.</li>
+			<li><strong>Commits by Author:</strong> A list of authors and their commit counts, sorted by the highest number of commits first.</li>
+			<li><strong>Top N Contributors:</strong> (Optional) Information about the top N contributors, including their username and commit count. (N is specified by the <code>-t</code> flag)</li>
+		</ul>
+
+		<p>The script uses ANSI escape codes to format the output with colors for better readability.</p>
+
+		<h3>Running the Script</h3>
+		<ol>
+			<li>Make sure you have Bash installed on your system.</li>
+			<li>Clone this repository or download the script <code>fetch_and_format_stats.sh</code>.</li>
+			<li>Open a terminal and navigate to the directory containing the script.</li>
+			<li>Run the script with the required arguments:</li>
+		</ol>
+
+		<pre><code>./fetch_and_format_stats.sh &lt;repository_owner&gt; &lt;repository_name&gt; [options]</code></pre>
+
+		<h3>Script Usage Examples</h3>
+		<h4>Basic Usage</h4>
+		<pre><code>./fetch_and_format_stats.sh facebook react</code></pre>
+		<p>This will display the commit statistics for the Facebook's react repository.</p>
 	</main>
 </Layout>
 
@@ -103,7 +141,7 @@ import Card from '../components/Card.astro';
 		position: absolute;
 		top: -32px;
 		left: 50%;
-		transform: translateX(-50%);
+		transform: translatex(-50%);
 		width: 220px;
 		height: auto;
 		z-index: -1;
